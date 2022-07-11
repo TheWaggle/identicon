@@ -14,7 +14,7 @@ defmodule Identicon do
     # Enum.chunk_every(data.hex, 3, 3, :discard)
     list =
       Enum.chunk_every(data.hex, 3)
-      |> Enum.drop(-1)
+      |> List.delete_at(-1)
       |> Enum.map(&Identicon.mirror_row(&1))
       |> List.flatten()
       |> Enum.with_index()
